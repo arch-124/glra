@@ -1,0 +1,28 @@
+{
+  "name": "booking-backend",
+  "version": "1.0.0",
+  "description": "GLRA Solar fullstack app (React + Node + MongoDB)",
+  "main": "server.js",
+  "type": "module",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "nodemon server.js",
+    "build": "cd ../frontend && npm install && npm run build"
+  },
+  "keywords": [],
+  "author": "GLRA Solar",
+  "license": "ISC",
+  "dependencies": {
+    "axios": "^1.13.1",
+    "bcrypt": "^6.0.0",
+    "cors": "^2.8.5",
+    "dotenv": "^17.2.3",
+    "express": "^5.1.0",
+    "jsonwebtoken": "^9.0.2",
+    "mongoose": "^8.19.2",
+    "path": "^0.12.7"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.10"
+  }
+}
