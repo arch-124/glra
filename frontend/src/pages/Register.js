@@ -13,7 +13,7 @@ const Register = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const res = await axios.post("http://localhost:5000/api/users/register", form);
+      const res = await axios.post("https://glra-newback.onrender.com/api/users/register", form);
       localStorage.setItem("token", res.data.token);
       setMessage("✅ Registration successful!");
     } catch (err) {
