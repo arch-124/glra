@@ -13,7 +13,7 @@ const Login = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const res = await axios.post("http://localhost:5000/api/users/login", form);
+      const res = await axios.post("https://glra-newback.onrender.com/api/users/login", form);
       localStorage.setItem("token", res.data.token);
       setMessage("✅ Login successful!");
       window.location.href = "/";
