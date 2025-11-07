@@ -12,7 +12,7 @@ const AdminDashboard = () => {
   // Fetch Leads
   const fetchLeads = async () => {
     try {
-      const response = await axios.get("http://localhost:5000/api/leads/all");
+      const response = await axios.get("https://glra-newback.onrender.com/api/leads/all");
       setLeads(response.data);
       setError("");
     } catch (err) {
@@ -24,7 +24,7 @@ const AdminDashboard = () => {
   // Fetch Bookings
   const fetchBookings = async () => {
     try {
-      const response = await axios.get("http://localhost:5000/api/bookings/all");
+      const response = await axios.get("https://glra-newback.onrender.com/api/bookings/all");
       setBookings(response.data.bookings || []);
     } catch (err) {
       console.error("Error fetching bookings:", err);
