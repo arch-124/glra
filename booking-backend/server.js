@@ -30,8 +30,6 @@ app.use(
 );
 
 // ✅ MongoDB connection
-const PORT = process.env.PORT || 5000;
-
 mongoose
   .connect(process.env.MONGO_URI)
   .then(() => console.log("✅ MongoDB connected"))
@@ -47,6 +45,7 @@ app.use("/api/bookings", bookingRoutes);
 app.get("/api", (req, res) => {
   res.send("Booking backend running successfully 🚀");
 });
+
 // ✅ Serve frontend (only in production)
 const __dirname = path.resolve();
 const frontendPath = path.join(__dirname, "../frontend/build");
@@ -67,3 +66,14 @@ if (process.env.NODE_ENV === "production" || process.env.RENDER) {
     res.send("Backend running in development mode ⚙️");
   });
 }
+
+// ✅ 404 Handler
+app.use((req, res) => {
+  res.status(404).json({ message: "Route not found", path: req.originalUrl });
+});
+
+// ✅ Start Server (important fix for Render)
+const PORT = process.env.PORT || 5000;
+app.listen(PORT, "0.0.0.0", () => {
+  console.log(`🚀 Server running on port ${PORT}`);
+});
