@@ -6,7 +6,7 @@ import ReactMarkdown from "react-markdown";
 import remarkGfm from "remark-gfm";
 
 // ✅ Use your local backend endpoint instead of Google API
-const API_URL = "http://localhost:5000/api/ai/ask";
+const API_URL = "https://glra-newback.onrender.com/api/ai/ask";
 
 const ChatBot = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -43,7 +43,7 @@ const ChatBot = () => {
     // Add the new user message
     conversation.push({ role: "user", parts: [{ text: userMessage }] });
 
- const response = await axios.post("http://localhost:5000/api/ai/ask", {
+ const response = await axios.post("https://glra-newback.onrender.com/api/ai/ask", {
   message: userMessage,
 });
 
@@ -89,7 +89,7 @@ const ChatBot = () => {
 
 // Send to backend
 try {
-  await axios.post("http://localhost:5000/api/leads/add", updatedData);
+  await axios.post("https://glra-newback.onrender.com/api/leads/add", updatedData);
   console.log("✅ Lead saved to database!");
 } catch (err) {
   console.error("❌ Failed to save lead:", err);
