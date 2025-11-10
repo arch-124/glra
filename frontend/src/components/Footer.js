@@ -4,11 +4,11 @@ const Footer = () => {
   return (
     <footer id="contact-section" style={styles.footer}>
       <h3 style={styles.title}>Contact Us</h3>
-      <p>📞 +91 98765 43210</p>
-      <p>✉️ support@glra.com</p>
-      <p>🏢 GLRA Solar Pvt. Ltd, Hyderabad, India</p>
+      <p>📞 +91 9700033050</p>
+      <p>✉️ lakme23@yahoo.com</p>
+      <p>🏢 GLRA Solar, Palvancha, India</p>
       <p style={styles.note}>
-        We’re available 9AM – 6PM (Mon–Sat). Reach out for quotes, service help, or collaborations.
+        We’re always available. Reach out for quotes, service help, or collaborations.
       </p>
     </footer>
   );
