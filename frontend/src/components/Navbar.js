@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import QuoteModal from "../components/QuoteModal"; // import the modal
+import QuoteModal from "../components/QuoteModal";
 import { Link } from "react-router-dom";
 
 function Navbar() {
@@ -10,22 +10,17 @@ function Navbar() {
       <div className="logo">GLRA</div>
       <ul className="nav-links">
         <li>
-          <Link to="/" className="nav-link">
-            Home
-          </Link>
+          <Link to="/" className="nav-link">Home</Link>
         </li>
         <li>
-          <Link to="/admin" className="nav-link">
-            Admin
-          </Link>
+          <Link to="/admin" className="nav-link">Admin</Link>
         </li>
-
       </ul>
+
       <button className="quote-btn" onClick={() => setShowQuote(true)}>
         Get a Quote
       </button>
 
-      {/* Show the modal when clicked */}
       {showQuote && <QuoteModal onClose={() => setShowQuote(false)} />}
     </nav>
   );
