@@ -8,7 +8,7 @@ const Footer = () => {
       <p>✉️ lakme23@yahoo.com</p>
       <p>🏢 GLRA Solar, Palvancha, India</p>
       <p style={styles.note}>
-        We’re always available. Reach out for quotes, service help, or collaborations.
+       Reach out for quotes, service help, or collaborations.
       </p>
     </footer>
   );
