@@ -6,21 +6,32 @@ function QuoteModal({ onClose }) {
 
   const handleCalculate = () => {
     const kwValue = parseFloat(kw);
+
     if (isNaN(kwValue) || kwValue <= 0) {
       setQuote("⚠️ Please enter a valid positive number for kW.");
       return;
     }
 
-    let costPerKw = kwValue >= 10 ? 42000 : 50000;
+    let costPerKw;
+    if (kwValue < 10) {
+      costPerKw = 50000; // for 1–9 kW
+    } else {
+      costPerKw = 42000; // for 10 kW and above
+    }
+
     const total = kwValue * costPerKw;
-    setQuote(`💰 Estimated Cost: ₹${total.toLocaleString("en-IN")}`);
+
+    setQuote({
+      costPerKw,
+      total,
+    });
   };
 
   return (
     <div className="modal-overlay">
       <div className="modal">
-        <h2>🔆 Get a Solar Quote</h2>
-        <p>Enter your desired system size (in kW):</p>
+        <h2>⚡ Get a Solar Quote</h2>
+        <p>Enter Power Requirement (in kW):</p>
 
         <input
           type="number"
@@ -39,7 +50,17 @@ function QuoteModal({ onClose }) {
           </button>
         </div>
 
-        {quote && <p className="quote-result">{quote}</p>}
+        {quote && typeof quote === "object" && (
+          <div className="quote-box">
+            <h3>💰 Estimated Cost: ₹{quote.total.toLocaleString("en-IN")}</h3>
+            <p>
+              Cost per kW: ₹{quote.costPerKw.toLocaleString("en-IN")}
+            </p>
+            <small>
+              *Price may vary depending on location, installation type, and budget.*
+            </small>
+          </div>
+        )}
       </div>
     </div>
   );
