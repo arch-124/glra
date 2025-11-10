@@ -892,29 +892,103 @@ button:hover,
   background-color: #1f2937;
   transform: translateY(-1px) scale(1.02);
 }
+/* Overlay background */
+.modal-overlay {
+  position: fixed; /* ✅ makes it cover entire screen */
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.6); /* semi-transparent background */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000; /* ensures it’s above navbar and content */
+}
+
+/* The modal box itself */
+.modal {
+  background: #fff;
+  padding: 2rem;
+  border-radius: 16px;
+  width: 350px;
+  text-align: center;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+  animation: popIn 0.25s ease-out;
+}
+
+@keyframes popIn {
+  0% {
+    transform: scale(0.9);
+    opacity: 0;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+/* Input styling */
+.kw-input {
+  width: 80%;
+  padding: 0.6rem;
+  font-size: 1rem;
+  margin: 1rem 0;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+}
+
+/* Buttons */
+.modal-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 0.5rem;
+}
+
+.calc-btn,
+.close-btn {
+  border: none;
+  padding: 0.6rem 1.2rem;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: bold;
+  color: #fff;
+  transition: 0.2s;
+}
+
+.calc-btn {
+  background-color: #1e1e2f;
+}
+
+.calc-btn:hover {
+  background-color: #343456;
+}
+
+.close-btn {
+  background-color: #777;
+}
+
+.close-btn:hover {
+  background-color: #555;
+}
+
+/* Quote result box */
 .quote-box {
   background: #f8f9fa;
   padding: 1rem;
-  border-radius: 12px;
+  border-radius: 10px;
   margin-top: 1rem;
-  text-align: center;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
 }
 
 .quote-box h3 {
-  color: #111;
-  font-weight: 700;
-  margin-bottom: 0.3rem;
-}
-
-.quote-box p {
   margin: 0.3rem 0;
-  color: #333;
+  color: #111;
 }
 
 .quote-box small {
-  color: #777;
   font-size: 0.85rem;
+  color: #666;
 }
-
 
